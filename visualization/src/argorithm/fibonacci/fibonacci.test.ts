@@ -1,4 +1,4 @@
-import { fib, tailCallFib } from "./fibonacci";
+import { fib, loopFib, tailCallFib } from "./fibonacci";
 
 function fibequation(n: number) {
   return (
@@ -47,6 +47,26 @@ describe("fibonacci", () => {
       expect(tailCallFib(10)).toBe(fibequation(10));
 
       expect(tailCallFib(20)).toBe(fibequation(20));
+    });
+  });
+
+  describe("loop function", () => {
+    test("음수는 0으로 반환", () => {
+      expect(loopFib(-100)).toBe(0);
+    });
+
+    test("0 = 0", () => {
+      expect(loopFib(0)).toBe(0);
+    });
+
+    test("1 = 1", () => {
+      expect(loopFib(1)).toBe(1);
+    });
+
+    test("10, 20", () => {
+      expect(loopFib(10)).toBe(fibequation(10));
+
+      expect(loopFib(20)).toBe(fibequation(20));
     });
   });
 });
