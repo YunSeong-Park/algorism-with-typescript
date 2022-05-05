@@ -1,3 +1,5 @@
+import { swapItem } from "./utils";
+
 export const bubbleSort = (
   array: number[],
   sortedIndex: number = array.length - 1,
@@ -27,9 +29,3 @@ export const bubbleSortByFor = (array: number[]) => {
     }
   }
 };
-
-function swapItem(array: number[], i: number, j: number): void {
-  array[i] ^= array[j];
-  array[j] ^= array[i];
-  array[i] ^= array[j];
-}
