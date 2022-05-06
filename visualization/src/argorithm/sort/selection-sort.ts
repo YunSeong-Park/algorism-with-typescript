@@ -9,8 +9,6 @@ export const selectionSort = (
   }
   const minIndex = findMinIndex(array.slice(sortedIndex)) + sortedIndex;
 
-  console.log(minIndex);
-
   if (minIndex !== sortedIndex) {
     swapItem(array, minIndex, sortedIndex);
   }
