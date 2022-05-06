@@ -9,17 +9,23 @@ export const quickSort = (
     return;
   }
 
-  let pointer = left;
+  let pivotPosition = partition(array, left, right);
+
+  quickSort(array, left, pivotPosition - 1);
+  quickSort(array, pivotPosition + 1, right);
+};
+
+const partition = (array: number[], left: number, right: number) => {
+  let pivotPosition = left;
 
   for (let i = 0; i < right - left; i++) {
     if (array[left + i] < array[right]) {
-      swapItem(array, pointer, left + i);
-      pointer++;
+      swapItem(array, pivotPosition, left + i);
+      pivotPosition++;
     }
   }
 
-  swapItem(array, pointer, right);
+  swapItem(array, pivotPosition, right);
 
-  quickSort(array, left, pointer - 1);
-  quickSort(array, pointer + 1, right);
+  return pivotPosition;
 };
