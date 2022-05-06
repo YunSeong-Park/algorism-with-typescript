@@ -4,7 +4,7 @@ import { bubbleSort, bubbleSortByFor } from "./bubble-sort";
 describe("bubble sort", () => {
   let array1: number[] = [];
   beforeEach(() => {
-    array1 = [1, 0, 4, 21, 100000];
+    array1 = [1, 0, 4, 100000, 21];
   });
   it("sort number array", () => {
     bubbleSort(array1);
@@ -15,7 +15,7 @@ describe("bubble sort", () => {
 describe("bubble sort by for", () => {
   let array1: number[] = [];
   beforeEach(() => {
-    array1 = [1, 0, 4, 21, 100000];
+    array1 = [1, 0, 4, 100000, 21];
   });
   it("sort number array", () => {
     bubbleSortByFor(array1);
@@ -26,7 +26,7 @@ describe("bubble sort by for", () => {
 describe("selecttion sort", () => {
   let array1: number[] = [];
   beforeEach(() => {
-    array1 = [1, 0, 4, 21, 100000];
+    array1 = [1, 0, 4, 100000, 21];
   });
   it("sort number array", () => {
     selectionSort(array1);
