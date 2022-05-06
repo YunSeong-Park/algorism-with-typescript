@@ -1,47 +1,44 @@
+import { quickSort } from "./quick-sort";
 import { selectionSort } from "./selection-sort";
 import { bubbleSort, bubbleSortByFor } from "./bubble-sort";
 import { insertionSort } from "./insertion-sort";
 
-describe("bubble sort", () => {
+const array = [10, 3, 4, 6, 3, 1, 19, 19, 29, 10, 20];
+
+const getSortedArray = () => {
+  const result = Array.from(array);
+  result.sort((a, b) => a - b);
+  return result;
+};
+
+describe("sort", () => {
   let array1: number[] = [];
   beforeEach(() => {
-    array1 = [1, 0, 4, 100000, 21];
+    array1 = [...array];
   });
-  it("sort number array", () => {
+
+  it("bubble sort", () => {
     bubbleSort(array1);
-    expect(array1).toEqual([0, 1, 4, 21, 100000]);
+    expect(array1).toEqual(getSortedArray());
   });
-});
 
-describe("bubble sort by for", () => {
-  let array1: number[] = [];
-  beforeEach(() => {
-    array1 = [1, 0, 4, 100000, 21];
-  });
-  it("sort number array", () => {
+  it("bubble sort by for", () => {
     bubbleSortByFor(array1);
-    expect(array1).toEqual([0, 1, 4, 21, 100000]);
+    expect(array1).toEqual(getSortedArray());
   });
-});
 
-describe("selecttion sort", () => {
-  let array1: number[] = [];
-  beforeEach(() => {
-    array1 = [1, 0, 4, 100000, 21];
-  });
-  it("sort number array", () => {
+  it("selecttion sort", () => {
     selectionSort(array1);
-    expect(array1).toEqual([0, 1, 4, 21, 100000]);
+    expect(array1).toEqual(getSortedArray());
   });
-});
 
-describe("insertion sort", () => {
-  let array1: number[] = [];
-  beforeEach(() => {
-    array1 = [1, 0, 4, 100000, 21];
-  });
-  it("sort number array", () => {
+  it("insertion sort", () => {
     insertionSort(array1);
-    expect(array1).toEqual([0, 1, 4, 21, 100000]);
+    expect(array1).toEqual(getSortedArray());
+  });
+
+  it("quick sort", () => {
+    quickSort(array1);
+    expect(array1).toEqual(getSortedArray());
   });
 });
