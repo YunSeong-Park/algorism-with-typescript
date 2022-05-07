@@ -9,10 +9,28 @@ export const quickSort = (
     return;
   }
 
-  let pivotPosition = partition(array, left, right);
+  const pivotPosition = partition(array, left, right);
 
   quickSort(array, left, pivotPosition - 1);
   quickSort(array, pivotPosition + 1, right);
+};
+
+export const quickSortTailRecursion = (
+  array: number[],
+  left: number = 0,
+  right: number = array.length - 1
+) => {
+  while (left < right) {
+    const pivotPosition = partition(array, left, right);
+
+    if (pivotPosition - left < right - pivotPosition) {
+      quickSortTailRecursion(array, left, pivotPosition - 1);
+      left = pivotPosition + 1;
+    } else {
+      quickSortTailRecursion(array, pivotPosition + 1, right);
+      right = pivotPosition - 1;
+    }
+  }
 };
 
 const partition = (array: number[], left: number, right: number) => {

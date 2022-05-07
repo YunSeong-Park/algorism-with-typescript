@@ -1,4 +1,4 @@
-import { quickSort } from "./quick-sort";
+import { quickSort, quickSortTailRecursion } from "./quick-sort";
 import { selectionSort } from "./selection-sort";
 import { bubbleSort, bubbleSortByFor } from "./bubble-sort";
 import { insertionSort } from "./insertion-sort";
@@ -39,6 +39,11 @@ describe("sort", () => {
 
   it("quick sort", () => {
     quickSort(array1);
+    expect(array1).toEqual(getSortedArray());
+  });
+
+  it("quick sort tail recurrsive", () => {
+    quickSortTailRecursion(array1);
     expect(array1).toEqual(getSortedArray());
   });
 });
